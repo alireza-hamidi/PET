@@ -1,4 +1,4 @@
-#PET Project
+PET Project
 
 In case of Starting Project
 Open CMD
