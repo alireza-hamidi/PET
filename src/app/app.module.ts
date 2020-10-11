@@ -13,10 +13,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 import { AppComponent } from './app.component';
 
 // Import containers
-import { DefaultLayoutComponent } from './containers';
+import { AnonymouseLayoutComponent } from './containers/anonymouse-layout/anonymouse-layout.component';
+import { LoggedLayoutComponent } from './containers/logged-layout/logged-layout.component';
 
 const APP_CONTAINERS = [
-  DefaultLayoutComponent
+  LoggedLayoutComponent,
+  AnonymouseLayoutComponent
 ];
 
 import {
