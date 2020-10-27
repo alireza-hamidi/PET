@@ -1,2 +1,33 @@
-<router-outlet>
-</router-outlet>
+<!-- <app-costume-navbar [scrolListener]="scrolListener"></app-costume-navbar> -->
+<div class="changeBack">
+    <fa-icon class="btn expandIcon" [icon]="faExpandArrowsAlt"></fa-icon>
+    <div>
+        <small>Change Background</small>
+        <div class="backgroundToolbarcontainer">
+            <fa-icon class="btn" [icon]="faAngleLeft" (click)="previosBackground()"></fa-icon>
+            <fa-icon class="btn" [icon]="faAngleRight" (click)="nextBackground()"></fa-icon>
+        </div>
+    </div>
+</div>
+<div class="background-bounding">
+    <img [attr.src]="backgroundsPath+backgrounds[selectedIndex]" class="back-img">
+    <div class="color-filter"></div>
+</div>
+
+<div class="head" #head>
+    <div class="brand">
+        <h2 class="brand-text" #brandText>{{brandName}}</h2>
+    </div>
+</div>
+<div class="main-container">
+    <div class="main" #main>
+        <div class="row">
+            <div class="col-12">
+                <router-outlet>
+                </router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-custome-footer></app-custome-footer>

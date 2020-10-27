@@ -1,65 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-// Import containers
-import { AnonymouseLayoutComponent } from './containers/anonymouse-layout/anonymouse-layout.component';
-import { LoggedLayoutComponent } from './containers/logged-layout/logged-layout.component';
-
-const APP_CONTAINERS = [
-  LoggedLayoutComponent,
-  AnonymouseLayoutComponent
-];
-
-import {
-  AppAsideModule,
-  AppBreadcrumbModule,
-  AppHeaderModule,
-  AppFooterModule,
-  AppSidebarModule,
-} from '@coreui/angular';
-
-// Import routing module
-import { AppRoutingModule } from './app.routing';
-
-// Import 3rd party components
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AnonymouseLayoutComponent } from './containers'
+import { SharedModule } from './containers/shared/shared.module'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { ChartsModule } from 'ng2-charts';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    AppAsideModule,
-    AppBreadcrumbModule.forRoot(),
-    AppFooterModule,
-    AppHeaderModule,
-    AppSidebarModule,
-    PerfectScrollbarModule,
-    BsDropdownModule.forRoot(),
-    TabsModule.forRoot(),
-    ChartsModule
-  ],
   declarations: [
     AppComponent,
-    ...APP_CONTAINERS,
+    AnonymouseLayoutComponent
   ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+  imports: [
+    SharedModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    FontAwesomeModule,
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

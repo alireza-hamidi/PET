@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-title">
+                <h5>{{FormObject.Name}}</h5>
+            </div>
+            <div class="row">
+                <div class="mt-2" [ngClass]="form.ValueControls.length>=4?'col-12':'col-12 col-md-6'"
+                    *ngFor="let form of FormObject.Groups">
+                    <div class="form-title">
+                        <h6>{{form.Name}}</h6>
+                    </div>
+                    <div class="form-container">
+                        <div class="row">
+                            <form action="">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div [attr.class]="createControlClass(form)"
+                                            *ngFor="let fc of form.ValueControls">
+                                            <div class="form-groug" unit-converter>
+                                                <label for="" [innerHTML]="fc.FullName"></label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="" id=""
+                                                        aria-describedby="helpId" placeholder="">
+                                                    <div *ngIf="fc.Units" class="input-group-append" dropdown>
+                                                        <button type="button" class="btn btn-primary dropdown-toggle"
+                                                            dropdownToggle>{{fc.UserUnit}}
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <div class="dropdown-menu" *dropdownMenu>
+                                                            <a class="dropdown-item" *ngFor="let option of fc.Units"
+                                                                (click)="setSelected(fc.Id,option)">{{option.LongName}}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <small id="helpId" class="form-text text-muted"
+                                                    [innerHTML]="fc.Tooltip"></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            <div class="row">
+                <div class="col-12 flex">
+                    <div class="center inline">
+                        <p class="calculation-output">{{content}}</p>
+                        <div class="btn-group" dropdown>
+                            <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+                                Unit <span class="caret"></span>
+                            </button>
+                            <ul *dropdownMenu class="dropdown-menu" role="menu">
+                                <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li class="divider dropdown-divider"></li>
+                                <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

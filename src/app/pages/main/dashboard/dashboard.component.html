@@ -1,5 +1,60 @@
-<div class="row">
-    <div class="col">
-        <h2>Its Head Start</h2>
+<div class="container">
+    <div class="row" id="explanation">
+        <div class="col-12 text-center">
+            <h1>Start Your Career With Us</h1>
+        </div>
+        <div class="col-12 text-center">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <div class="card" wmAnimate="bounceIn" aos>
+                        <div class="card-body">
+                            <h5 class="card-title">For Buzzinesses</h5>
+                            <p class="card-text">
+                                By Adding our Application to your Work Place Assets in Action you will Delete the
+                                Computation
+                                Part of your job and you can Constantrate on other Parts.
+                            </p>
+                            <a href="#" class="card-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card" wmAnimate="bounceIn" aos>
+                        <div class="card-body">
+                            <h5 class="card-title">For Teams</h5>
+                            <p class="card-text">
+                                We Have Good Plans For Teams that Provides a Good Envirement to Share your Calculations
+                                abd Compare your Work with Others.
+                            </p>
+                            <a href="#" class="card-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card" wmAnimate="bounceIn" aos>
+                        <div class="card-body">
+                            <h5 class="card-title">For Students</h5>
+                            <p class="card-text">
+                                Feel Free to use Profisional Tools and Learn about How Computations are Going.
+
+                            </p>
+                            <section class="card-link">
+                                <a href="#">Learn More</a>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
+<hr>
+<div class="row" id="formula">
+    <div class="col-12">
+        <div [attr.class]="createControlClass(formula)" *ngFor="let formula of formulas"  wmAnimate="beat" aos>
+            <app-form-factory col="12" colSm="6" colMd="4" colLg="3" [FormObject]="formula"></app-form-factory>
+        </div>
+    </div>
+</div>
+<hr>

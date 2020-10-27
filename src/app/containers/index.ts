@@ -1,1 +1,1 @@
-export * from './default-layout';
+export { AnonymouseLayoutComponent } from './anonymouse-layout/anonymouse-layout.component';

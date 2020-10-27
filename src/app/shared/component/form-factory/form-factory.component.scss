@@ -1,0 +1,47 @@
+.form-container {
+    padding: 10px;
+    border: 1px solid #9d9d9d78;
+    border-radius: 3px;
+    margin-top: -15px;
+    padding-top: 12px;
+}
+
+.form-title {
+    width: fit-content;
+    margin-left: 11px;
+    display: block;
+    background: #fff;
+    z-index: 2;
+    position: relative;
+    padding: 0px 2px;
+}
+
+.dropdown-menu {
+    left: auto !important;
+    right: 0px !important;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.calculation-output {
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+.inline{
+    display: inline-flex;
+}
+
+form{
+    width: 100%;
+}
+
+.inner-container{
+    padding: 5px;
+}
