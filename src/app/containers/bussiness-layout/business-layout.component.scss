@@ -15,7 +15,7 @@
 
 .head {
   position: relative;
-  height: 50%;
+  height: 100%;
   width: 100%;
   text-align: center;
   align-content: center;
@@ -50,7 +50,15 @@
 
 .brand-text {
   font-size: 3rem;
-  top: 12rem;
+  top: 24rem;
+  position: relative;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+  // transition: 1s linear;
+}
+
+.sub-brand-text {
+  font-size: 1.5rem;
+  top: 25rem;
   position: relative;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
   // transition: 1s linear;
@@ -66,6 +74,10 @@
   // margin-top: -150px;
   // transition: 0.3s cubic-bezier(0.66, 0.65, 0, 1.24);
 
+}
+
+::ng-deep html {
+  scroll-behavior: smooth;
 }
 
 .changeBack {
@@ -125,5 +137,38 @@
 
   .expandIcon {
     display: none;
+  }
+}
+
+.scroll-toolbar {
+  animation-name: moving-veritical;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  background: #5ba6ae;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 50%;
+  color: #fff;
+  width: 38px;
+  height: 38px;
+
+  fa-icon {
+    padding: 7px;
+  }
+}
+
+@keyframes moving-veritical {
+  0% {
+    margin-top: 0px;
+  }
+
+  50% {
+    margin-top: 10px;
+  }
+
+  100% {
+    margin-top: 0px;
   }
 }

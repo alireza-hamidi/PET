@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AnonymouseLayoutComponent } from './containers/anonymouse-layout/anonymouse-layout.component';
+import { AnonymouseLayoutComponent, BusinessLayoutComponent } from './containers';
 const routes: Routes = [
   {
     path: 'error',
@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: '',
     component: AnonymouseLayoutComponent,
+    children: [{
+      path: '',
+      loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)
+    }]
+  },
+  {
+    path: 'business',
+    component: BusinessLayoutComponent,
     children: [{
       path: '',
       loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)

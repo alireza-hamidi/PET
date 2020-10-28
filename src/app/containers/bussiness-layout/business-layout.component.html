@@ -17,10 +17,12 @@
 <div class="head" #head>
     <div class="brand" wmAnimate="fadeIn">
         <h2 class="brand-text" #brandText>{{brandName}}</h2>
+        <h5 class="sub-brand-text">{{subBrandText}}</h5>
     </div>
+    <div class="scroll-toolbar"><fa-icon class="btn" [icon]="faArrowDown" (click)="scroll(100,'p')"></fa-icon></div>
 </div>
 <div class="main-container">
-    <div class="main" #main>
+    <div class="main" id="main" #main>
         <div class="row">
             <div class="col-12">
                 <router-outlet>
