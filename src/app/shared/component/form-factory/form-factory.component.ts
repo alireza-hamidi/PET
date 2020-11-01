@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Formula } from 'src/app/models/formula';
-import { Form, ValueControls } from '../../../models';
+import { Form, ValueControls, CalculationResult } from '../../../models';
+import { faCalculator } from '@fortawesome/free-solid-svg-icons';
+import { FormFactoryService } from './form-factory.service';
 
 @Component({
     selector: 'app-form-factory',
@@ -9,7 +11,8 @@ import { Form, ValueControls } from '../../../models';
 })
 
 export class FormFactoryComponent implements OnInit {
-    constructor() { }
+    constructor(private service: FormFactoryService) { }
+    faCalculator = faCalculator
     @Input() col: number
     @Input() colSm: number
     @Input() colMd: number
@@ -17,9 +20,8 @@ export class FormFactoryComponent implements OnInit {
     @Input() colXl: number
     @Input() FormObject: Formula
 
-    controls: ValueControls[]
     formTitle: string
-    content: string = "10"
+    content: CalculationResult
     validOutputUnits: string[]
     defaultOutputUnit: string
     ngOnInit() {
@@ -39,10 +41,14 @@ export class FormFactoryComponent implements OnInit {
         e.class = "show"
     }
 
-    setSelected(id: number, option: any) {
-        let fc = this.controls.filter(x => x.Id == id)
-        for (let x in fc) {
-            fc[x].UserUnit = option.LongName
-        }
+    setSelected(formControll: ValueControls, symbol: string) {
+        formControll.UserUnit = symbol
+    }
+
+    calculate() {
+        this.service.post<CalculationResult>("home/calculate", this.FormObject).subscribe(res => {
+            this.content = res
+            console.log(res)
+        });
     }
 }

@@ -1,47 +1,71 @@
 .form-container {
-    padding: 10px;
-    border: 1px solid #9d9d9d78;
-    border-radius: 3px;
-    margin-top: -15px;
-    padding-top: 12px;
+  padding: 10px;
+  border: 1px solid #9d9d9d78;
+  border-radius: 3px;
+  margin-top: -15px;
+  padding-top: 12px;
 }
 
 .form-title {
-    width: fit-content;
-    margin-left: 11px;
-    display: block;
-    background: #fff;
-    z-index: 2;
-    position: relative;
-    padding: 0px 2px;
+  width: fit-content;
+  margin-left: 11px;
+  display: block;
+  background: #fff;
+  z-index: 2;
+  position: relative;
+  padding: 0px 2px;
 }
 
 .dropdown-menu {
-    left: auto !important;
-    right: 0px !important;
+  left: auto !important;
+  right: 0px !important;
 }
 
 .center {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .calculation-output {
-    padding: 10px;
-    margin-bottom: 0px;
+  padding: 10px;
+  margin-bottom: 0px;
 }
 
-.inline{
-    display: inline-flex;
+.inline {
+  display: inline-flex;
 }
 
-form{
-    width: 100%;
+form {
+  width: 100%;
 }
 
-.inner-container{
-    padding: 5px;
+.inner-container {
+  padding: 5px;
+}
+
+.answer-box {
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid #00000017;
+  background: #2484ff3b;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.answer-box {
+  .input-group {
+    p {
+      padding-top: 10px;
+    }
+
+    .input-group-append {
+      padding-left: 10px;
+    }
+  }
 }

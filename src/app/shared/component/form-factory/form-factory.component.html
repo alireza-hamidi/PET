@@ -22,14 +22,15 @@
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" name="" id=""
                                                         aria-describedby="helpId" placeholder="">
-                                                    <div *ngIf="fc.Units" class="input-group-append" dropdown>
+                                                    <div *ngIf="fc.Units && fc.Units.length>0"
+                                                        class="input-group-append" dropdown>
                                                         <button type="button" class="btn btn-primary dropdown-toggle"
                                                             dropdownToggle>{{fc.UserUnit}}
                                                             <span class="caret"></span>
                                                         </button>
                                                         <div class="dropdown-menu" *dropdownMenu>
                                                             <a class="dropdown-item" *ngFor="let option of fc.Units"
-                                                                (click)="setSelected(fc.Id,option)">{{option.LongName}}</a>
+                                                                (click)="setSelected(fc,option.Symbol)">{{option.Symbol}}</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -45,23 +46,29 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 mt-3">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-2 mt-3">
+            <button class="btn btn-primary" (click)="calculate()">Calculate <fa-icon class="btn" [icon]="faCalculator">
+                </fa-icon></button>
+        </div>
+        <div class="col-12 mt-3" *ngIf="content && content.NumberResult>0">
             <div class="row">
                 <div class="col-12 flex">
-                    <div class="center inline">
-                        <p class="calculation-output">{{content}}</p>
-                        <div class="btn-group" dropdown>
-                            <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-                                Unit <span class="caret"></span>
-                            </button>
-                            <ul *dropdownMenu class="dropdown-menu" role="menu">
-                                <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-                                <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-                                <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-                                <li class="divider dropdown-divider"></li>
-                                <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-                                </li>
-                            </ul>
+                    <div class="center inline answer-box">
+                        <div class="input-group">
+                            <p>Calculated Value = </p>
+                            <p>{{content.NumberResult}}</p>
+                            <div *ngIf="content.Units && content.Units.length>0" class="input-group-append" dropdown>
+                                <button type="button" class="btn btn-primary dropdown-toggle"
+                                    dropdownToggle>{{content.UserUnit}}
+                                    <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu" *dropdownMenu>
+                                    <a class="dropdown-item" *ngFor="let option of content.Units"
+                                        (click)="setSelected(content,option.Symbol)">{{option.Symbol}}</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

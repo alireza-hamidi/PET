@@ -52,7 +52,12 @@
 <hr>
 <div class="row" id="formula">
     <div class="col-12">
-        <div [attr.class]="createControlClass(formula)" *ngFor="let formula of formulas"  wmAnimate="beat" aos>
+        <ul class="nav nav-tabs">
+            <li [ngClass]="i==activeTab?'active nav-item':'nav-item'" *ngFor="let formula of formulas,let i=index"
+                (click)="activeTab=i">
+                {{formula.Name}}</li>
+        </ul>
+        <div [attr.class]="createControlClass(formula)" *ngFor="let formula of formulas ,let i=index" [ngClass]="i==activeTab?'show':'hidden'"  wmAnimate="beat" aos>
             <app-form-factory col="12" colSm="6" colMd="4" colLg="3" [FormObject]="formula"></app-form-factory>
         </div>
     </div>
